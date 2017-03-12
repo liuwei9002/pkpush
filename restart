@@ -1,0 +1,4 @@
+#!/bin/sh
+src=$(pwd)
+phpsrc=$(which php)
+sudo ${phpsrc} ${src}/trensy server:restart

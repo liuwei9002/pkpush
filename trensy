@@ -1,0 +1,8 @@
+#!/usr/bin/php
+<?php
+define("ROOT_PATH", __DIR__);
+define("STORAGE_PATH", __DIR__."/storage");
+//define("STORAGE_PATH", "/tmp/storage");
+define("APPLICATION_PATH",__DIR__."/application");
+require_once __DIR__ . "/vendor/autoload.php";
+\Trensy\Foundation\Application::runCmd();

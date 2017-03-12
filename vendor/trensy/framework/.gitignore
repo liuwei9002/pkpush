@@ -1,0 +1,7 @@
+.idea/
+composer.lock
+vendor/
+/mela/
+/tests/application/public/release/
+/tests/application/storage/
+/tests/application/node_modules/

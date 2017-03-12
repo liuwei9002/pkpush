@@ -1,0 +1,37 @@
+{
+    "name": "trensy/framework",
+    "description": "a fast php framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Peter Wang",
+            "email": "hpuwang@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "ext-swoole" : ">=1.8.0",
+        "ext-mbstring": "*",
+        "ext-posix":"*",
+        "predis/predis": "^1.1"
+    },
+    "replace":{
+
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Trensy\\": "src/trensy"
+        }
+    },
+    "suggest": {
+        "ext-msgpack": "data serialize tool",
+        "ext-igbinary":"data serialize tool",
+        "ext-hprose":"data serialize tool",
+        "ext-apc":"php opcode cache , not support7",
+        "ext-apcu":"php7 support "
+    },
+    "minimum-stability": "dev"
+}
