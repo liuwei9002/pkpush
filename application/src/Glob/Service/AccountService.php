@@ -22,7 +22,7 @@ class AccountService
      * @param $pwd
      * @return bool
      */
-    public function login($email, $pwd)
+    public function login($email, $pwd, $useSession=1)
     {
         $config = config()->get("app.salt_key");
         $pwd = md5($config.$pwd);
@@ -33,12 +33,16 @@ class AccountService
         $where['passwd'] = $pwd;
         $user = $obj->get($where);
         if($user){
-            session()->clear();
-            session()->set(self::LOGIN_ADMIN_KEY, $user);
-            return true;
+            if($useSession){
+                session()->clear();
+                session()->set(self::LOGIN_ADMIN_KEY, $user);
+            }
+            unset($user['passwd']);
+            return $user;
         }
         return false;
     }
+    
 
     public function checkPwd($uid, $pwd)
     {

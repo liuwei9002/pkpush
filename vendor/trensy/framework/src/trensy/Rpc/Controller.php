@@ -25,13 +25,26 @@ class Controller
 
     private $server = null;
     private $fd = null;
+    private $params = null;
 
-    public function __construct($server, $fd)
+    public function __construct($server, $fd, $params)
     {
         $this->server = $server;
         $this->fd = $fd;
+        $this->params = $params;
     }
 
+
+    public function getParams()
+    {
+        return $this->params;
+    }
+    
+    public function getParam($key, $default=null)
+    {
+        return isset($this->params[$key])?$this->params[$key]:$default;
+    }
+    
     /**
      * 数据返回
      * 
@@ -89,5 +102,15 @@ class Controller
         $data = $obj->format($data);
         $this->server->send($this->fd, $data);
 //        $this->server->close($this->fd);
+    }
+
+    public function responseError($errorMsg ='', $errorCode=self::RESPONSE_NORMAL_ERROR_CODE)
+    {
+        return $this->response("", $errorCode, $errorMsg);
+    }
+
+    public function responseSuccess($data)
+    {
+        return $this->response($data);
     }
 }

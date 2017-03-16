@@ -82,16 +82,5 @@ return [
             //$method,$path,$uses,$middleware
             ['any', '/<appName=null:\w+>', "wx/wx/index"],
         ]
-    ],
-    //rpc接口
-    [
-        "name" => "rpc",
-        "prefix" => "api",
-        "domain" => "",
-        "middleware" => [],
-        "routes" => [
-            //$method,$path,$uses,$middleware
-            ['post', '/login', "rpc/user@index/login"],
-        ]
-    ],
+    ]
 ];

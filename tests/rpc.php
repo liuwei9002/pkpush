@@ -6,6 +6,6 @@
  */
 include "base.php";
 
-$client = new \Trensy\Rpc\RpcClient("127.0.0.1", "9999", 2);
-$rs = $client->get("/api/login", ['user'=>'wang']);
+$client = new \Trensy\Rpc\RpcClient("127.0.0.1", "9800", 1);
+$rs = $client->get("/api/admin/login", ['account'=>'admin@admin.com', 'passwd'=>"111111"]);
 dump($rs);

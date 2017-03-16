@@ -1,0 +1,57 @@
+#page {
+    height: 100%;
+}
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon  { right: 0px;}
+
+.inner-addon .fa {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/* align icon */
+.left-addon  .fa   { left:  0px;}
+.right-addon  .fa  { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+.center{
+    text-align: center;
+}
+#content-main{
+    height: calc(100% - 100px);
+}
+.nav-header{
+    padding: 10px 10px;
+}
+.wrapper-content{
+    padding: 10px;
+}
+/**  面包屑 **/
+.breadcrumb{
+    padding: 10px;
+}
+
+.breadcrumb>li a{
+    color:#337ab7;
+    font-size: 14px;
+}
+
+.mb10{
+    margin-bottom: 10px;
+}

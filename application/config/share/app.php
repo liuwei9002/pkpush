@@ -23,6 +23,7 @@ return [
     "task"=>[],
     "log"=>"",
     "route"=>\App\Lib\Handle\RouteHandle::class,
+    "rpcroute"=>\App\Lib\Handle\RpcRouteHandle::class,
     "email"=>[
         "server"=>[
             "smtp"=>"",

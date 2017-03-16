@@ -8,28 +8,28 @@ return [
     "name" => "daocang",
 //    "servers" => ['httpd','job'],
 //    "servers" => ['httpd'],
-    "servers" => ['httpd','rpc','job'],
+    "servers" => ['httpd', 'rpc', 'job'],
     "httpd" => [
         "server" => [
             "host" => "0.0.0.0",
             "port" => "8888",
             "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
-            "auto_reload"=>"10:00",//每天10点重启
+            "auto_reload" => "10:00",//每天10点重启
             "log_file" => STORAGE_PATH . "/tmp/log",
             'static_path' => [
-                "^\/static"=>APPLICATION_PATH . '/resource/static',
-                "^\/pptpreview"=> STORAGE_PATH . "/uploads/pptpreview"
+                "^\/static" => ROOT_PATH . '/resource/static',
+                "^\/pptpreview" => STORAGE_PATH . "/uploads/pptpreview"
             ],
             "static_expire_time" => 86400,
             "task_fail_log" => STORAGE_PATH . "/tmp/task_fail_log",
             "task_retry_count" => 2,
-            "task_timeout"=>1,
+            "task_timeout" => 1,
             "serialization" => 1,
-            "view"=>[
+            "view" => [
 //        "diy"=>\App\Lib\Handle\ViewHandle::class,
-                "path"=>APPLICATION_PATH."/resource/views/default",
-                "compile_path"=> STORAGE_PATH."/compile",
-                "page404"=>"page404"
+                "path" => APPLICATION_PATH . "/templates/default",
+                "compile_path" => STORAGE_PATH . "/compile",
+                "page404" => "page404"
             ],
             "gzip" => 4,
             //是否后台运行, 推荐设置0
@@ -47,32 +47,32 @@ return [
             //一般设置为CPU核数的1-4倍，在swoole中reactor_num最大不得超过CPU核数*4。
             'reactor_num' => 8,
             "task_worker_num" => 1,//task worker 数量
-            "max_request"=>10000,
+            "max_request" => 10000,
             'heartbeat_check_interval' => 10,
             'heartbeat_idle_time' => 60,
         ],
     ],
     "job" => [
         "server" => [
-            "auto_reload"=>"10:00",//每天10点重启
+            "auto_reload" => "10:00",//每天10点重启
             //是否后台运行, 推荐设置0
             'daemonize' => 0,
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 4,
             "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
             "serialization" => 1,
-            "timer_tick"=>500,//每隔多长执行一次,单位毫秒
+            "timer_tick" => 500,//每隔多长执行一次,单位毫秒
         ],
-        "perform"=>[
-            "clearlog"=>[
+        "perform" => [
+            "clearlog" => [
                 "sleep" => 1,//执行一次sleep多长时间
-                "only_one"=>1,//是否只能插入一次数据
+                "only_one" => 1,//是否只能插入一次数据
                 "max_attempts" => 5,//失败后最多重试多少次
                 "fail_on_output" => false//是否输出
             ],
-            "heart"=>[
+            "heart" => [
                 "sleep" => 1,//执行一次sleep多长时间
-                "only_one"=>0,//是否只能插入一次数据
+                "only_one" => 0,//是否只能插入一次数据
                 "max_attempts" => 5,//失败后最多重试多少次
             ],
         ]

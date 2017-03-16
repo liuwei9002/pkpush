@@ -133,7 +133,7 @@ class Controller
         $result['elapsedTime'] = $elapsedTime;
         $this->response->header("Content-type", "application/json");
         //JSON_NUMERIC_CHECK
-        $content = Tool::my_json_encode($result);
+        $content = Tool::myJsonEncode($result);
         $this->response->end($content, $useZip);
     }
 
